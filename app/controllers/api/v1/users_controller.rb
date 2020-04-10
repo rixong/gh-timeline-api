@@ -10,6 +10,6 @@ class Api::V1::UsersController < ApplicationController
   
     private
     def user_params
-      params.require(:user).permit(:name, :password, :bio)
+      params.fetch(:user, {}).permit(:name, :password_digest, :bio)
     end
   end
